@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  background-color: #f3f4f6;
+}
+
+.card,
+.modal-content {
+  background-color: white;
+  box-shadow: 0 0 4px 1px rgb(222, 221, 221);
+  width: 32rem;
+  max-width: 32rem;
+  padding-inline: 3rem;
+  padding-block: 3rem;
+  border-radius: 1rem;
+}
+
+.card h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-content: center;
+}
+
+.modal-content {
+  padding-block: 2.5rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modal-content h3 {
+  text-align: center;
+  font-style: italic;
+}
+
+.modal-data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 0.5rem;
+}
+
+.modal-data p {
+  font-style: italic;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.error-msg {
+  color: red;
+  margin-top: 4px;
+  font-size: 0.87rem;
+  visibility: hidden;
+  position: absolute;
+}
+
+/* ------------------------------------------ Input-wrapper  */
+
+.input-wrapper {
+  position: relative;
+  transition: all 0.25s ease-in-out;
+}
+
+.input-wrapper:hover {
+  transform: scale(1.007);
+}
+
+.input-wrapper:hover input {
+  box-shadow: 0 0 1px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+.input-wrapper:has(input:focus) {
+  transform: scale(1.007);
+}
+/* ------------------------------------------// Input-wrapper  */
+
+/* -------------------------------------- Inputbox  */
+
+input {
+  width: 100%;
+  padding: 0.6rem;
+  padding-left: 2.5rem;
+  margin-top: 0.25rem;
+  border: 1.5px solid #979797;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 1px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+input:valid {
+  border-color: #22c55e;
+  background-color: rgba(20, 239, 20, 0.114);
+}
+
+input:valid {
+  border-color: #22c55e;
+  background-color: rgba(20, 239, 20, 0.114);
+}
+
+input:not(:placeholder-shown):invalid {
+  border-color: red;
+  background-color: rgba(255, 37, 3, 0.137);
+}
+
+input:not(:placeholder-shown):invalid ~ .error-msg {
+  visibility: visible;
+}
+
+/* ------------------------------------------// Inputbox  */
+
+button {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  scale: 1.02;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: translateY(-50%);
+  left: 3%;
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 640px) {
+  main {
+    background-color: white;
+  }
+
+  .card {
+    width: 100%;
+    padding-inline: 1.5rem;
+    box-shadow: none;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+  form {
+    gap: 1.5rem;
+  }
+
+  .error-msg {
+    font-size: 0.8rem;
+  }
+}
