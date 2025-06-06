@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  background-color: #f3f4f6;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 0 4px 1px rgb(222, 221, 221);
+  width: 32rem;
+  max-width: 32rem;
+  padding-inline: 3rem;
+  padding-block: 3rem;
+  border-radius: 1rem;
+}
+
+.heading {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.heading h2 {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.heading p {
+  text-align: center;
+  opacity: 0.5;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ------------------------------------------ Input-wrapper  */
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper:has(input:valid)::after {
+  content: "✔︎";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18px;
+  color: #22c55e;
+  font-size: 1.5rem;
+}
+
+.input-wrapper:has(input:invalid:not(:placeholder-shown))::after {
+  content: "❌";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 16px;
+  font-size: 0.8rem;
+}
+
+/* ------------------------------------------// Input-wrapper  */
+
+/* -------------------------------------- Inputbox  */
+
+input {
+  width: 100%;
+  padding: 0.62rem;
+  padding-inline: 2.9rem;
+  margin-top: 0.25rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus:placeholder-shown {
+  box-shadow: 0 0 0 1px rgb(0, 0, 0);
+}
+
+input:focus {
+  border-color: transparent;
+}
+
+input:not(:placeholder-shown) {
+  border-color: transparent;
+}
+
+input:valid {
+  box-shadow: 0 0 0 1px #22c55e;
+}
+
+input:invalid:not(:placeholder-shown) {
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.622);
+}
+
+input:invalid:not(:placeholder-shown) ~ .error-msg {
+  display: block;
+}
+
+/* ------------------------------------------// Inputbox  */
+
+.error-msg {
+  color: red;
+  margin-top: 4px;
+  font-size: 0.87rem;
+  position: absolute;
+  display: none;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+  width: 20px;
+  height: 20px;
+}
+
+button {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  scale: 1.02;
+}
+
+@media (max-width: 640px) {
+  .input-wrapper:has(input:valid)::after {
+    font-size: 1.2rem;
+    right: 14px;
+  }
+
+  .input-wrapper:has(input:invalid:not(:placeholder-shown))::after {
+    font-size: 0.7rem;
+  }
+
+  input {
+    padding-block: 0.44rem;
+    border: 1px solid #979797;
+  }
+
+  main {
+    background-color: white;
+  }
+
+  .card {
+    width: 100%;
+    padding-inline: 24px;
+    box-shadow: none;
+  }
+
+  form {
+    gap: 24px;
+  }
+
+  label {
+    font-size: small;
+    font-weight: 500;
+  }
+
+  .error-msg {
+    font-size: 0.8rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .heading h2 {
+    font-size: 1.15rem;
+  }
+}

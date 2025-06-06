@@ -3,28 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>CSS Form Validation</title>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <main>
       <div class="card">
-        <h2>Create Your PopX Account</h2>
+        <div class="heading">
+          <h2>Form Validation Using CSS</h2>
+          <p>Pseudo Classes - :valid :invalid</p>
+        </div>
 
-        <form class="new-way">
+        <form>
           <div class="form-group">
             <label for="name">Name</label>
             <div class="input-wrapper">
               <i data-lucide="user" class="icon"></i>
               <input
-                required
-                minlength="3"
-                type="text"
                 id="name"
-                placeholder="Elon musk"
+                type="text"
+                required
+                autofocus
+                minlength="3"
+                pattern="[A-Za-z\s]+"
+                placeholder="Bill Gates"
               />
-              <p class="error-msg">Must be at least 3 char</p>
+              <p class="error-msg">Minimum 3 characters, alphabets only</p>
             </div>
           </div>
 
@@ -33,11 +38,10 @@
             <div class="input-wrapper">
               <i data-lucide="mail" class="icon"></i>
               <input
-                type="email"
                 id="email"
+                type="email"
                 required
-                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                placeholder="elon@example.com"
+                placeholder="gates@gmail.com"
               />
               <p class="error-msg">Please enter a valid email address</p>
             </div>
@@ -66,8 +70,8 @@
             <div class="input-wrapper">
               <i data-lucide="lock" class="icon"></i>
               <input
-                type="password"
                 id="password"
+                type="password"
                 required
                 minlength="6"
                 placeholder="password"
@@ -76,38 +80,14 @@
             </div>
           </div>
 
-          <button type="submit">Create Account</button>
+          <button type="submit">Submit</button>
         </form>
-      </div>
-
-      <div class="modal">
-        <div class="modal-content">
-          <h3>Form Submit Successfull</h3>
-
-          <div class="modal-data">
-            <h4>Name :</h4>
-            <p id="show-name"></p>
-          </div>
-
-          <div class="modal-data">
-            <h4>Email :</h4>
-            <p id="show-email"></p>
-          </div>
-          <div class="modal-data">
-            <h4>Phone :</h4>
-            <p id="show-phone"></p>
-          </div>
-          <div class="modal-data">
-            <h4>Password :</h4>
-            <p id="show-password"></p>
-          </div>
-
-          <button class="close-modal-btn">Close</button>
-        </div>
       </div>
     </main>
   </body>
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </html>
